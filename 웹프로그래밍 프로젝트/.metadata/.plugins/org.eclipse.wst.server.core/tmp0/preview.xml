@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<server port="8080">
+  <module context="Project" name="Project" path="C:/Users/PIG/Desktop/과제/2018 1학기/웹프/프로젝트/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/Project" type="j2ee"/>
+</server>

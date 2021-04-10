@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#t1{
+	border: 3px solid blue; /* t1클래스를 지정하고 t1 클래스의 속성을 테두리 3px의 solid blue 색상으로 지정합니다. */
+	table-layout: auto; /* 셀 너비를 분량에 따라 자동으로 조절합니다. */
+}
+td{
+	border: 2px solid black; 2px solid black; /* td태그의 속성을 테두리 2px의 solid blue 색상으로 지정합니다. */
+}
+</style>
+<meta charset="EUC-KR">
+<title>로그인 페이지</title>
+</head>
+<body>
+<center>
+<h1><font color=red>로그인 페이지 입니다!</font></h1><hr> <!-- 제목을  지정하고 글씨 색상을 빨간 색으로 지정합니다. -->
+<form method=post action=login.jsp> <!-- form 태그를 통해  login.jsp 에 정보를 post방식으로 전송합니다 -->
+<table id="t1" border="1"> <!-- style 태그에서 설정한 t1클래스의 속성을 table 태그에 적용합니다. -->
+<tr> <!-- 1행 시작 -->
+	<td colspan="3" align="center"><strong>로그인</strong></td> <!-- 1열의 내용을 중앙정렬하고 1,2,3열을 병합합니다.  -->
+</tr> 
+<tr> <!-- 2행 시작 -->
+	<td align="center"><strong>아이디(학번)</strong> <!-- 1열의 내용을 중앙정렬합니다. -->
+	<td><input type=text name=id_number>
+	<td rowspan="2"><input type=submit value="로그인">
+</tr>
+<tr>
+	<td align="center"><strong>비밀번호 <!-- 1열의 내용을 중앙정렬합니다. -->
+	<td><input type=password name=password>
+</tr>
+</table>
+</form>
+<a href="join.html">회원가입</a>
+<p><img src="78.gif" alt="image" width=200 height=200>
+</center>
+</body>
+</html>

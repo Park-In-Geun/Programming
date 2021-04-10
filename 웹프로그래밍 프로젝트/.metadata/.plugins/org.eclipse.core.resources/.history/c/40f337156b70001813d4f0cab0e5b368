@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div1{float:right; table-layout:auto;} /* div1 태그 안의 내용들에 속성값을 적용시킵니다. 화면의 요소를 오른쪽으로 배열하고  셀 너비를 분량에 따라 자동으로 조절합니다.*/
+div2{float:left; table-layout:auto;} /* div1 태그 안의 내용들에 속성값을 적용시킵니다. 화면의 요소를 오른쪽으로 배열하고  셀 너비를 분량에 따라 자동으로 조절합니다.*/
+#t1{
+	border: 3px solid blue; /* t1클래스를 지정하고 t1 클래스의 속성을 테두리 3px의 solid blue 색상으로 지정합니다. */
+	table-layout: auto; /* 셀 너비를 분량에 따라 자동으로 조절합니다. */
+}
+td{
+	border: 2px solid black; /* td태그의 속성을 테두리 2px의 solid blue 색상으로 지정합니다.
+}
+</style>
+<meta charset="EUC-KR">
+<title>회원가입 페이지</title>
+</head>
+<body>
+<center>
+<strong>
+<h1><font color=red>회원가입 페이지 입니다!</font></h1><hr>
+<div1><img src="006.gif" alt="image" width=200 height=200></div1>
+<div2><img src=1487388792237.png alt="img" width=200 height=200></div2>
+<form method=post action=join.jsp>
+<table id="t1" border="1">
+	<tr>
+		<td align="center" colspan="2">회원가입
+	<tr>
+		<td align="center">학교 선택
+		<td><select name="school">
+			<option value="한림대학교" selected>한림대학교</option>
+			<option value="강원대학교">강원대학교</option>
+			<option value="성심대학교">성심대학교</option>
+			<option value="전문대학교">전문대학교</option> 
+		</select>
+	<tr>
+		<td align="center">아이디(학번)
+		<td><input type=text name=id_number>
+	<tr>
+		<td align="center">비밀번호
+		<td><input type=password name=password>
+	<tr>
+		<td align="center">비밀번호 확인
+		<td><input type=password name=password>
+	<tr>
+		<td align="center">이름
+		<td><input type=name name=name>
+	<tr>
+		<td align="center" colspan="2"><input type=submit value="회원가입">		
+</table>
+</form>
+</strong>
+</center>
+</body>
+</html>

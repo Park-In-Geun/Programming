@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#t1{
+	border: 3px solid blue; /* t1클래스를 지정하고 t1 클래스의 속성을 테두리 3px의 solid blue 색상으로 지정합니다. */
+	table-layout: auto; /* 셀 너비를 분량에 따라 자동으로 조절합니다. */
+}
+td{
+	border: 2px solid black; 2px solid black; /* td태그의 속성을 테두리 2px의 solid blue 색상으로 지정합니다. */
+}
+</style>
+<meta charset="EUC-KR">
+<title>과목선택</title>
+</head>
+<body>
+<center>
+<h1>환영합니다! 수강신청 페이지 입니다.</h1> <!-- 제목을 h1태그를 사용해 설정합니다. -->
+<strong>
+<FONT COLOR="RED">수강하려는 과목을 선택 후 '신청하기' 버튼을 클릭하여 주세요. 과목명 옆의 괄호는 학점입니다.</FONT><hr> <!-- 글씨 색상을 빨간 색으로 지정합니다. -->
+<form action=subject.jsp method=post> <!-- form 태그를 통해  subject.jsp 에 정보를 post방식으로 전송합니다 -->
+<table id="t1" border="1"> <!-- style 태그에서 설정한 t1클래스의 속성을 table 태그에 적용합니다. -->
+	<tr> <!-- 1행 시작 -->
+		<td align=center>학과  <!-- 1열 중앙정렬합니다. -->
+		<td align=center>과목 <!-- 2열 중앙정렬합니다. -->
+	<tr> <!-- 2행 시작 -->
+		<td align=center rowspan="3">공과대학 <!-- 1열 중앙정렬하고 2,3,4행을 병합합니다. -->
+		<td><input type=checkbox  name=subject value="빅데이터(3)">빅데이터(3)<!-- 2열의 내용을 input태그의 checkbox 타입을 이용해 체크할수 있게 하고 value값은 빅데이터(3)으로 지정합니다. -->
+	<tr> <!-- 3행 시작 -->
+		<td><input type=checkbox  name=subject value="IOT(3)">IOT(3) <!-- 2열의 내용을 input태그의 checkbox 타입을 이용해 체크할수 있게 하고 value값은 IOT(3) 으로 지정합니다. -->
+	<tr> <!-- 4행 시작 -->
+		<td><input type=checkbox  name=subject  value="콘텐츠IT(3)">콘텐츠 IT(3) <!-- 2열의 내용을 input태그의 checkbox 타입을 이용해 체크할수 있게 하고 value값은 콘텐츠IT(3) 으로 지정합니다. -->
+	<tr> <!-- 5행 시작 -->
+		<td align=center rowspan="3">인문대학 <!-- 1열 중앙정렬하고 5,6,7행을 병합합니다. -->
+		<td><input type=checkbox  name=subject  value="경제학(3)">경제학(3) <!-- 2열의 내용을 input태그의 checkbox 타입을 이용해 체크할수 있게 하고 value값은 경제학(3) 으로 지정합니다. -->
+	<tr> <!-- 6행 시작 -->
+		<td><input type=checkbox  name=subject  value="인문학(3)">인문학(3) <!-- 2열의 내용을 input태그의 checkbox 타입을 이용해 체크할수 있게 하고 value값은 인문학(3)으로 지정합니다. -->
+	<tr>
+		<td><input type=checkbox  name=subject  value="사회학(3)">사회학(3) <!-- 2열의 내용을 input태그의 checkbox 타입을 이용해 체크할수 있게 하고 value값은 사회학(3)으로 지정합니다. -->
+	<tr>
+		<td align=center rowspan="3">간호대학
+		<td><input type=checkbox  name=subject  value="물리치료(3)">물리치료(3)
+	<tr>
+		<td><input type=checkbox  name=subject  value="심치치료(3)">심리치료(3)
+	<tr>
+		<td><input type=checkbox name=subject  value="외과(3)">외과(3)
+	<tr>
+		<td align=center rowspan="3">교양
+		<td><input type=checkbox name=subject  value="현대사회와 기업법(2)">현대사회와 기업법(2)
+	<tr>
+		<td><input type=checkbox name=subject  value="미디어 정보통신(2)">미디어 정보통신(2)
+	<tr>
+		<td><input type=checkbox name=subject  value="현재의 자본주의 사회(2)">현재의 자본주의 사회(2)
+	<tr>
+		<td align=center colspan=2><INPUT TYPE="submit" value="신청하기"">
+								   <INPUT TYPE="reset" value="취소">
+</table>
+</form>
+</strong>
+</center>
+</body>
+</html>

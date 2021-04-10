@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<style>
+#t1{
+	border: 3px solid blue;
+	table-layout: auto;
+}
+td{
+	border: 2px solid black;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<jsp:useBean id="st_subject" class="school.School_member" scope="page"/>
+<jsp:useBean id="dbconnect" class="school.DBConnection" scope="page"/>
+<jsp:setProperty name="st_subject" property="*"/>
+<%request.setCharacterEncoding("EUC-KR");%>
+<strong>
+<table id="t1" border="1">
+<tr>
+	<td>학교
+	<td><%out.print(st_subject.getSchool()); %>
+<tr>
+	<td>아이디(학번)
+	<td><%out.print(st_subject.getId_number()); %>
+<tr>
+	<td>이름</td>
+	<td><%out.print(st_subject.getName());%></td>
+<tr>
+	<td>과목</td>
+	<td>
+	<%
+  	 String subjects[] = request.getParameterValues("subject");
+   		for(String subject : subjects){
+      		out.println(subject); 
+      }
+     %>
+   	</td>
+</table>`
+</strong>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<style>
+#t1{
+	border: 3px solid blue;
+	table-layout: auto;
+}
+td{
+	border: 2px solid black;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<%request.setCharacterEncoding("EUC-KR");%>
+<strong>
+<table id="t1" border="1">
+<tr>
+	<td>학교
+	<td><%=request.getParameter("school") %>
+<tr>
+	<td>아이디(학번)
+	<td><%=request.getParameter("id_number") %>
+<tr>
+	<td>이름</td>
+	<td><%=request.getParameter("name") %></td>
+<tr>
+	<td>과목</td>
+	<td>
+	<%
+  	 String subjects[] = request.getParameterValues("subject");
+   		for(String subject : subjects){
+      		out.println(subject); 
+      }
+     %>
+   	</td>
+</table>`
+</strong>
+</body>
+</html>

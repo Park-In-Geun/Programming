@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#t1{
+	border: 3px solid blue;
+}
+td{
+	border: 2px solid black;
+}
+</style>
+<meta charset="EUC-KR">
+<title>로그인 페이지</title>
+</head>
+<body>
+<center>
+<h1><font color=red>로그인 페이지 입니다!</font></h1>
+<form method=post action=login.jsp>
+<table id="t1" border="1" width="300">
+<tr>
+	<td colspan="3" align="center" background-color="yellow"><strong>로그인</strong></td>
+</tr>
+<tr>
+	<td align="center"><strong>아이디(학번)</strong>
+	<td><input type=text name=id>
+	<td rowspan="2"><input type=submit value=Login>
+</tr>
+<tr>
+	<td align="center"><strong>비밀번호
+	<td><input type=password name=password>
+</tr>
+</table>
+</form>
+<a href="join.html">회원가입</a>
+<p><img src="78.gif" alt="image" width=200 height=200>
+</center>
+</body>
+</html>
