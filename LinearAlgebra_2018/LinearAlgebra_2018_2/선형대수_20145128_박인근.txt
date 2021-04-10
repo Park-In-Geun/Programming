@@ -1,0 +1,388 @@
+for k = 5:5:50, disp(k), end
+     5
+
+    10
+
+    15
+
+    20
+
+    25
+
+    30
+
+    35
+
+    40
+
+    45
+
+    50
+
+clear
+clc
+n=10;
+fact=1;
+for k = 1:n 
+fact = k* fact;
+disp([k fact])
+end
+     1     1
+
+     2     2
+
+     3     6
+
+     4    24
+
+     5   120
+
+     6   720
+
+           7        5040
+
+           8       40320
+
+           9      362880
+
+          10     3628800
+
+clear
+clc
+bal = 15000* rand;
+if bal < 5000
+rate = 0.09;
+elseif bal < 10000
+rate = 0.12;
+else
+rate = 0.15;
+end
+newbal = bal + rate * bal;
+format bank
+disp('New balance is : 
+??? disp('New balance is : 
+         |
+{Error: A MATLAB string constant is not terminated properly.
+} 
+disp('New balance is : ')
+New balance is : 
+disp(newbal)
+      10623.64
+
+disp('New balance is : '),disp(newbal)
+New balance is : 
+      10623.64
+
+clear
+clc
+a = 1;
+b = 3
+
+b =
+
+          3.00
+
+c = 2;
+d = b^2 - 4*a*c;
+if a~= 0
+if d<0
+disp('complex roots')
+else
+x1 = (-b + sqrt(d)) / (2*a);
+x2 = (-b -sqrt(d)) / (2*a);
+end
+end
+disp([x1 x2])
+         -1.00         -2.00
+
+clear
+clc
+d = floor(3*rand) + 1
+
+d =
+
+          1.00
+
+switch d
+case 1
+disp('d is 1!');
+case 2
+disp('d is 2!');
+otherwise
+disp('d must be 3!');
+end
+d is 1!
+clc
+celar
+{??? Undefined function or variable 'celar'.
+} 
+clear
+clc
+x = 1000;
+for k = 1:15
+if k <= 6
+x = x*0.09
+elseif
+??? elseif
+          |
+{Error: Expression or statement is incomplete or incorrect.
+} 
+else
+??? else
+    |
+{Error: Illegal use of reserved keyword "else".
+} 
+clear
+clc
+money = 1000;
+for k = 1:15
+if k < 6
+x = x*0.09
+elseif k >= 5
+clear
+clc
+end
+clc
+end
+{??? Undefined function or variable 'x'.
+} 
+clear
+clc
+money = 1000
+
+money =
+
+       1000.00
+
+for k = 1:15
+if k < 6
+money = money*0.09
+elseif k >= 6 && k <11
+money = money*0.12
+else
+money = money*0.15
+end
+end
+
+money =
+
+         90.00
+
+
+money =
+
+          8.10
+
+
+money =
+
+          0.73
+
+
+money =
+
+          0.07
+
+
+money =
+
+          0.01
+
+
+money =
+
+          0.00
+
+
+money =
+
+          0.00
+
+
+money =
+
+          0.00
+
+
+money =
+
+          0.00
+
+
+money =
+
+          0.00
+
+
+money =
+
+          0.00
+
+
+money =
+
+          0.00
+
+
+money =
+
+          0.00
+
+
+money =
+
+          0.00
+
+
+money =
+
+          0.00
+
+clear
+clc
+money = 1000
+
+money =
+
+       1000.00
+
+k = 1:15
+
+k =
+
+  Columns 1 through 4
+
+          1.00          2.00          3.00          4.00
+
+  Columns 5 through 8
+
+          5.00          6.00          7.00          8.00
+
+  Columns 9 through 12
+
+          9.00         10.00         11.00         12.00
+
+  Columns 13 through 15
+
+         13.00         14.00         15.00
+
+if k<6
+rate = 0.09;
+elseif k >= 6 && k <11
+rate = 0.12;
+else
+rate = 0.15;
+end
+{??? Operands to the || and && operators must be convertible to
+logical scalar values.
+} 
+x= money + rate*money;
+{??? Undefined function or variable 'rate'.
+} 
+clc
+clear
+clc
+x= 1000;
+for k = 1:15
+if k<6
+x = x + x*0.09
+elseif k>=6 && k<=10
+x = x + x*0.12
+else
+x = x + x*0.15
+end
+format compact
+format bank
+disp[k x])
+??? disp[k x])
+        |
+{Error: Unbalanced or unexpected parenthesis or bracket.
+} 
+disp([k x])
+{??? Undefined function or variable 'k'.
+} 
+end
+??? end
+    |
+{Error: Illegal use of reserved keyword "end".
+} 
+kldsajf lkdsjf dsf
+{??? Undefined function or method 'kldsajf' for input arguments of
+type 'char'.
+} 
+clear
+clc
+x = 1000;
+format compact
+format bank
+for k = 1:15
+if k<6
+rate =0.09
+x = x + x*rate;
+elseif k>=6 && k<=10
+rete =0.12;
+x = x + x*rate;
+else
+rate = 0.15;
+x = x + x*rate;
+end
+disp([k x])
+end
+rate =
+          0.09
+          1.00       1090.00
+rate =
+          0.09
+          2.00       1188.10
+rate =
+          0.09
+          3.00       1295.03
+rate =
+          0.09
+          4.00       1411.58
+rate =
+          0.09
+          5.00       1538.62
+          6.00       1677.10
+          7.00       1828.04
+          8.00       1992.56
+          9.00       2171.89
+         10.00       2367.36
+         11.00       2722.47
+         12.00       3130.84
+         13.00       3600.46
+         14.00       4140.53
+         15.00       4761.61
+clear
+clc
+
+------ 실습과제 1
+x = 1000; //초기 예치 금액 1000달러
+format bank //재정 계산을 위해 사용. 소수점 두 자리수까지 사용
+format compact //불필요한 줄바꿈 제거
+for k = 1:15 //1년부터 15년까지 구하기 위한 반복문
+if k<6 //1년부터 5년까지를 확인하기 위한 조건문
+x = x+x*0.09; //1년부터 5년까지는 이자율 9% 적용
+elseif k>=6 && k<=10 //6년부터 10년까지를 확인하기 위한 반복문
+x = x+x*0.12; //6년부터 10년까지는 이자율 12% 적용
+else //11년 이상일 경우
+x = x+x*0.15; //11년부터는 이자율 15% 적용
+end //조건문 종료
+disp([k x]) //반복문이 한번 반복될 때마다 k 와 x 값을 한번씩 출력
+end //반복문 종료
+          1.00       1090.00
+          2.00       1188.10
+          3.00       1295.03
+          4.00       1411.58
+          5.00       1538.62
+          6.00       1723.26
+          7.00       1930.05
+          8.00       2161.66
+          9.00       2421.05
+         10.00       2711.58
+         11.00       3118.32
+         12.00       3586.07
+         13.00       4123.98
+         14.00       4742.57
+         15.00       5453.96
+diary off
