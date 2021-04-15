@@ -1,0 +1,173 @@
+
+public class BSTree { // 트리 클래스입니다.
+
+	private BSTNode root; //BSTNode형 root 변수를 선언합니다.
+	
+	public BSTNode search(int key){ //BSTNode search 메서드입니다. key값을 받습니다.
+		BSTNode p; //BSTNode형 p를 선언합니다. 
+		p = root; //p에 root를 넣어줍니다.
+		while(p != null){ //p가 null값이 될 때 까지 반복하는 반복문입니다.
+			if(p.getKey() > key){ //p의 getKey()값이 삽입된 정수형 key값보다 큰 지 확인합니다.
+				p = p.getLeft(); //조건이 맞을경우 p에 p의 getLeft() (왼쪽 자식)을 넣어줍니다.
+			}
+			else if(p.getKey() == key){ //위의 조건과 다른 경우로 p의 getKey값이 삽입된 정수형 key값과 같은지 확인합니다.
+				return p; //조건이 맞을경우 p값을 반환합니다.
+			} 
+			else p = p.getRight(); //위의 두 조건을 모두 만족하지 않을 경우 p에 p의 getRight() (오른쪽 자식)을 넣어줍니다.
+		}
+		return p; //p를 반환해줍니다.
+	}
+	
+	public void insert(int key){ //트리에 정수형 key값을 삽입하는 메서드입니다.
+		BSTNode p,q=null; //BSTNode형 p,q 를 선언하고 q에 null값을 넣어줍니다.
+		
+		p = root; //p에 root값을 넣어줍니다.
+		while(p != null){ //p가 null값이 될 때 까지 반복하는 반복문입니다.
+			if(key == p.getKey()) return; //key가 p의 getKey() 값과 같은지 확인하고 조건이 맞을 경우 아무것도 반환하지 않습니다.
+			q = p; //q에 p값을 넣어줍니다.
+			if(key < p.getKey()){ //key가 p의 getKey()값보다 작은지 확인합니다.
+				p = p.getLeft(); //p에 p의 getLeft() (왼쪽 자식) 을 넣어줍니다.
+			}
+			else{ //key가 p의 getKey() 값보다 클 경우입니다.
+				p = p.getRight(); //p에 p의 getRight() (오른쪽 자식) 을 넣어줍니다.
+			}
+		}
+		BSTNode newNode = new BSTNode(); //BSTNode형 newNode를 생성합니다.
+		newNode.setKey(key); //newNode의 setKey에 key값을 넣어줍니다. (부모)
+		newNode.setRight(null); //newNode의 setRight에 null값을 넣어줍니다. (오른쪽 자식)
+		newNode.setLeft(null); //newNode의 setLeft에 null값을 넣어줍니다. (왼쪽 자식)
+		if(root == null){ root = newNode;} //root가 null값과 같은지 확인하고 조건이 맞을 경우 root에 newNode를 넣어줍니다.
+		else if(key < q.getKey()){q.setLeft(newNode);;} 
+		//q의 getKey값이 key값보다 클 경우를 확인하고 조건이 맞을 경우 q.setLeft에 newNode를 넣어줍니다. (q의 왼쪽 자식에 newNode값을 연결)
+		else //위의 두 조건이 모두 만족하지 않을 경우에 실행합니다.
+			q.setRight(newNode); //q의 setRight에 newNode를 넣어줍니다. (q의 오른쪽 자식에 newNode값을 연결)
+		return; //아무것도 반환하지 않습니다.
+	}
+	
+	public void delete(int key){ //트리에서 정수형 key값을 삭제하는 메서드입니다.
+		deleteBST(this.root, key);
+	}
+	
+	private BSTNode minNode(BSTNode deleleBSTNode){ //BSTree 클래스 내에서만 사용 가능한 BSTNode형 minNode 메서드입니다. BSTNode형 을 삽입받습니다.
+		BSTNode p = deleleBSTNode;
+		if (p.getLeft() == null) return p;
+		else return minNode(p.getLeft());
+	}
+	
+	private void deleteBST(BSTNode root, int key){
+		BSTNode p = root;
+		BSTNode q = p;
+		//부모노드 설정
+		while (p != null)
+		{
+			if (key == p.getKey()) break;
+			q = p;
+			if (key < p.getKey()) p = p.getLeft();
+			else p = p.getRight();
+		}
+		
+		if ( p == null) return;
+		
+		//리프 노드 삭제
+		if((p.getLeft() == null) && (p.getRight() == null)){
+			if(p == root){ root=null; }
+			else if(q.getLeft() == p)  q.setLeft(null); 
+			else  q.setRight(null); 
+		}
+		
+		//하나의 자식 == null
+		else if ((p.getLeft() == null) || (p.getRight() == null)){
+			if(p == root)
+			{
+				if(p.getLeft() == null) root = p.getRight();
+				else root = p.getLeft();
+			}
+			//Left child null
+			else if(p.getLeft() != null){
+				if(q.getLeft() == p)  q.setLeft(p.getLeft()); 
+				else q.setRight(p.getLeft()); 
+			}
+			
+			//right child null
+			else 
+			{
+				if(q.getLeft() == p) q.setLeft(p.getRight()); 
+				else q.setRight(p.getRight());
+			}
+		}
+		
+		//두개의 자식 right subtree minimum value
+		else
+		{
+			BSTNode minValue = minNode(p.getRight());
+			if(p.getRight() == minValue) p.setRight(minValue.getRight());
+			p.setKey(minValue.getKey());
+			deleteBST(p.getLeft(),p.getKey());
+		}
+	}
+	
+	public boolean split(int key, BSTree bBST, BSTree cBST)
+	{
+		BSTNode small = new BSTNode();
+		BSTNode large = new BSTNode();
+		BSTNode p = this.treeCopy(this.root);
+		BSTNode s = small;
+		BSTNode l = large;
+		while(p != null)
+		{
+			if(key == p.getKey()){
+				s.setRight(p.getLeft());
+				l.setLeft(p.getRight());
+				bBST.root = small.getRight();
+				cBST.root = large.getLeft();
+				return true;
+			}
+			else if(key < p.getKey()){
+				l.setLeft(p);
+				l = p;
+				p = p.getLeft();
+			}
+			else{
+				s.setRight(p);
+				s = p;
+				p = p.getRight();
+			}
+		}
+		bBST.root = small.getRight();
+		cBST.root = large.getLeft();
+		l.setLeft(null);
+		s.setRight(null);
+		return false;
+	}
+	
+	private BSTNode treeCopy(BSTNode T)
+	{
+		BSTNode S, L, R;
+		if(T != null)
+		{
+			L = treeCopy(T.getLeft());
+			R = treeCopy(T.getRight());
+			S = new BSTNode(T.getKey());
+			S.setLeft(L);
+			S.setRight(R);
+		}
+		else
+			return null;
+		return S;
+	}
+	
+	public void print(){ //메인 클래스에서 트리를 출력하는 메서드입니다.
+		printBST(root); //printBST메서드에 root를 삽입합니다.
+		System.out.println(); //줄을 바꿔줍니다.
+	}
+	
+	private void printBST(BSTNode root){ //BSTree클래스 내에서만 사용 가능한 printBST메서드로 BSTNode형 을 삽입받습니다.
+		if (root != null){ // root가 null과 같지 않은지 확인하는 조건문입니다.
+			System.out.print("<"); //조건이 맞을 경우 < 를 출력하는 출력문입니다.
+			printBST(root.getLeft()); //printBST에 root의 getLeft() (왼쪽 자식)을 삽입합니다.
+			System.out.print(root.getKey()); //root의 getKey() (부모)를 출력합니다.
+			printBST(root.getRight()); //printBST에 root의 getRight() (오른쪽 자식)을 삽입합니다.
+			System.out.print(">"); // > 를 출력합니다.
+		}
+	}
+}

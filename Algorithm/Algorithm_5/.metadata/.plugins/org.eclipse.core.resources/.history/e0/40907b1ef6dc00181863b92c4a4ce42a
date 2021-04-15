@@ -1,0 +1,37 @@
+
+public class Week5 { //메인 클래스 입니다.
+	public static void main(String args[])
+	{
+		Heap heap = new Heap(3); //Heap 형 객체 heap를 생성하고 정수 값 3을 넣어줍니다.
+		
+		heap.insert(18);  heap.insert(13);  heap.insert(5); 
+		heap.insert(12);  heap.insert(8);
+		// insert 함수를 사용하여 히프에 정수 값 18,13,5,12,8 을 삽입합니다.
+		heap.print(); // print 함수를 사용해 히프를 출력합니다.
+		heap.insert(3); // insert 함수를 사용하여 히프에 정수 값 3 을 삽입합니다.
+		heap.print(); // print 함수를 사용해 히프를 출력합니다.
+		heap.insert(19); // insert 함수를 사용하여 히프에 정수 값 19 을 삽입합니다.
+		heap.print(); // print 함수를 사용해 히프를 출력합니다.
+		heap.insert(9); // insert 함수를 사용하여 히프에 정수 값 9 을 삽입합니다.
+		heap.print(); // print 함수를 사용해 히프를 출력합니다.
+	
+		System.out.println("Delete Data : " + heap.delete());
+		// delete 함수를 사용해 heap의 내용을 삭제합니다.
+		heap.print(); // print 함수를 사용해 히프를 출력합니다.
+		System.out.println("Delete Data : " + heap.delete());
+		heap.print(); //
+		System.out.println("Delete Data : " + heap.delete());
+		heap.print();
+		
+		Heap test = new Heap(3);
+		test.testInsert(20); test.testInsert(90);  test.testInsert(100);
+		test.testInsert(70); test.testInsert(60);  test.testInsert(50);
+		test.testInsert(80); test.testInsert(10);  test.testInsert(40);
+		test.testInsert(30);
+		System.out.println("Test Heap Data");
+		test.print();
+		test.makeTreeHeap();
+		test.print();
+	
+	}
+}

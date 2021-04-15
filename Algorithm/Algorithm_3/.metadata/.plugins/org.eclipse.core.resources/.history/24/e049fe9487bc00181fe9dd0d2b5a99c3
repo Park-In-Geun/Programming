@@ -1,0 +1,46 @@
+
+public class Week3 {
+	public static void main(String[] args){
+		
+		BTree root, leftTree, rightTree, equal_test;
+		
+		leftTree = new BTree(new BTree(), 'A', new BTree()); 
+		//leftTree에 BTree() (왼쪽 자식), A(부모) , BTree() (오른쪽 자식)이 삽입된 BTree()메서드를 넣습니다.
+
+		rightTree = new BTree(new BTree(), 'B', new BTree());
+		//rightTree에 BTree() (왼쪽 자식), B(부모) , BTree() (오른쪽 자식)이 삽입된 BTree()메서드를 넣습니다.
+		root = new BTree(leftTree, '+', rightTree);
+		//root에 leftTree(왼쪽 자식), +(부모), rightTree(오른쪽 자식)을 넣습니다.
+
+		leftTree = root; //leftTree에 root를 넣습니다. ( + 의 부모)
+		
+		rightTree = new BTree(new BTree(), 'C', new BTree());
+		//rightTree에  BTree() (왼쪽 자식), C(부모) , BTree() (오른쪽 자식)이 삽입된 BTree()메서드를 넣습니다.
+		
+		root = new BTree(leftTree, '*', rightTree);
+		//root에 leftTree(왼쪽 자식), *(부모), rightTree(오른쪽 자식)을 넣습니다. 
+	
+		leftTree = root; //leftTree에 root를 넣습니다. ( * 의 부모)
+		
+		rightTree = new BTree(new BTree(), 'D', new BTree());
+		//rightTree에  BTree() (왼쪽 자식), D(부모) , BTree() (오른쪽 자식)이 삽입된 BTree()메서드를 넣습니다.
+		
+		root = new BTree(leftTree, '/', rightTree);
+		//root에 leftTree(왼쪽 자식), /(부모), rightTree(오른쪽 자식)을 넣습니다.
+		equal_test = new BTree(rightTree, 'A', leftTree);
+		
+		
+		System.out.println("\n\n===Level Order Traversal===");
+		root.levelOrder();
+		
+		System.out.println("\n\n===Tree Copy===");
+		BTree copy_tree = root.copy();
+		System.out.println("Inorder Traversal of basic Tree");
+		root.inorder();
+		System.out.println("\nInorder Traversal of copy Tree");
+		copy_tree.inorder();
+	
+		System.out.println("\n\nanswer : " + root.Equal(copy_tree));
+		System.out.println("answer : " + root.Equal(equal_test));
+	}
+}

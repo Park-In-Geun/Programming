@@ -1,0 +1,33 @@
+
+public class ListNode { //ListNode 클래스 입니다.
+
+	private Object data; //ListNode 클래스에서만 사용가능한 변수 data 를 선언합니다.
+	private ListNode link; //ListNode 클래스에서만 사용가능한 ListNode형 변수 link를 선언합니다.
+	
+	public ListNode(){
+		data = null;
+		link = null;
+	}
+	
+	public ListNode(Object data){
+		data = data;
+		link = null;
+	}
+
+	public Object getData() {
+		return data;
+	}
+
+	public void setData(Object data) {
+		this.data = data;
+	}
+
+	public ListNode getLink() {
+		return link;
+	}
+
+	public void setLink(ListNode link) {
+		this.link = link;
+	}
+	
+}

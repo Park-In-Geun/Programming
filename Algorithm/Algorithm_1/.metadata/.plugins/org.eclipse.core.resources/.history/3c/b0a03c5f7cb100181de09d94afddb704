@@ -1,0 +1,11 @@
+
+public class Week_1_2 {
+	
+	public static void main(String[] args){
+		
+		LinkedList list = new LinkedList();
+		
+		list.print();
+		list.addLastNode("AAAA");
+	}
+}
