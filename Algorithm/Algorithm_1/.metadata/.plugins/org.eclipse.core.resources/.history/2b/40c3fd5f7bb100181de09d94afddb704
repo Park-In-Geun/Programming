@@ -1,0 +1,18 @@
+
+public class ListNode {
+
+	private Object data;
+	private ListNode link;
+	
+	public ListNode()
+	
+	public ListNode(Object data)
+	
+	public Object getData()
+	
+	public ListNode getLink()
+	
+	public void setData(Object data)
+	
+	public void setLink(ListNode link)
+}

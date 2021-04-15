@@ -1,0 +1,20 @@
+public class Node {
+
+	private TreeNode node;
+	private Node link;
+	
+	public Node(TreeNode node)
+	{
+		this.node = node;
+		this.link = null;
+	}
+	public Node(TreeNode node, Node top)
+	{
+		this.node = node;
+		this.link = top;
+	}	
+	public TreeNode getNode() { return this.node; }
+	public Node getLink() { return this.link; }
+	public void setNode(TreeNode node) { this.node = node; }
+	public void setLink(Node link) { this.link = link; } 
+}

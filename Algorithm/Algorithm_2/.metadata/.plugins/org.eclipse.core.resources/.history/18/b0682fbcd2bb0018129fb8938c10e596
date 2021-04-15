@@ -1,0 +1,20 @@
+public class Node { //Node 클래스 입니다.
+
+	private TreeNode node; //Node 클래스내에서만 사용가능한 TreeNode형 변수 node를 생성합니다.
+	private Node link; //Node 클래스내에서만 사용가능한 Node형 link를 생성합니다.
+	
+	public Node(TreeNode node) //Node 메서드로 TreeNode형 node를 삽입받습니다.
+ 	{
+		this.node = node; //입력받은 node를 this.node에 넣습니다.
+		this.link = null;
+	}
+	public Node(TreeNode node, Node top)
+	{
+		this.node = node;
+		this.link = top;
+	}	
+	public TreeNode getNode() { return this.node; }
+	public Node getLink() { return this.link; }
+	public void setNode(TreeNode node) { this.node = node; }
+	public void setLink(Node link) { this.link = link; } 
+}

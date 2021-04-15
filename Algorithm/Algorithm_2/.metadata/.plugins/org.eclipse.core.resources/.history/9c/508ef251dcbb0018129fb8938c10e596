@@ -1,0 +1,120 @@
+public class BTree { //순환,비순환 이진트리가 구현된 클래스입니다.
+	
+	private TreeNode root; //TreeNode형 변수 root를 선언합니다.
+	
+	public BTree(){ //생성자입니다.
+		this.root = null; //this.root에 null값을 넣어줍니다.
+	}
+	public BTree(BTree left, Object data, BTree right)
+	//이진트리에서 Btree형 left,right 값, 그리고 data값이 삽입된 사용할 Btree() 메서드입니다.
+	{
+		root = new TreeNode(data); //TreeNode메서드에 data값을 삽입해 반한된 값을 root(부모)에 넣습니다.
+		root.setLeft(left.root); //setleft()메서드에 left.root를 넣습니다.
+		root.setRight(right.root);//setRight()메서드에 right.root를 넣습니다.
+	}
+	public void setRoot(TreeNode root){ this.root = root; }
+	//TreeNode형 root가 삽입된 setter메서드 setRoot()로 this.root에 삽입된 root를 넣습니다.
+	
+	public TreeNode getRoot(){ return this.root; }
+	//getter메서드 getRoot()로 this.root를 반환합니다.
+	
+	public boolean isEmpty(){ return root == null; }
+	//boolean형 isEmpty()로 root 가 null값과 같은지를 반환합니다.
+	
+	public BTree leftSubTree(){ //leftSubTree()메서드입니다.(왼쪽자식)
+		BTree leftTree = new BTree(); //Btree형 leftTree 객체를 생성합니다.
+		leftTree.root = this.root.getLeft(); //leftTree.root에 this.root의 getLeft() 값을 넣어줍니다.
+		return leftTree; //leftTree를 반환합니다.
+	} 
+	public BTree rightSubTree(){ //rightSubTree()메서드입니다.(오른쪽자식)
+		BTree rightTree = new BTree(); //Btree형 rightTree 객체를 생성합니다.
+		rightTree.root = this.root.getRight(); //right.root에 this.root의 getRight() 값을 넣어줍니다.
+		return rightTree; //rightTree를 반환합니다.
+	}
+	public Object getRootData(){ //getRootData()메서드입니다.(부모)
+		return this.root.getData(); //this.root의 getData()값을 반환합니다.
+	}
+	
+	public void inorder(){ //중위 순회 메서드입니다.
+		B_inorder(root); // B_inorder()메서드에 root를 삽입합니다.
+	}
+	private void B_inorder(TreeNode T){ //BTree클래스 내에서만 사용가능한 B_inorder()메서드로 TreeNode형 T가 삽입됩니다.
+		if(T != null){ // T의 값이 null이 아닌지 확인하는 조건문입니다.
+			B_inorder(T.getLeft()); //조건이 맞을 경우 B_inorder()메서드에 T.getLeft()값을 넣습니다.(왼쪽 자식 방문)
+			System.out.print(T.getData() + " "); //T.getData()값을 출력합니다.(부모 방문)
+			B_inorder(T.getRight()); //B_inorder()메서드에 T.getRight()값을 넣습니다.(오른쪽 자식 방문)
+		}
+	}
+	public void preorder(){ //전위 순회 메서드입니다.
+		B_preorder(root); //B_preorder()메서드에 root를 삽입합니다.
+	}
+	private void B_preorder(TreeNode T){ //BTree클래스 내에서만 사용가능한 B_preorder메서드로 TreeNode형 T가 삽입됩니다.
+		if(T != null){ //T의 값이 null이 아닌지 확인하는 조건문입니다.
+			System.out.print(T.getData() + " "); //조건이 맞을 경우 T.getData()값을 출력합니다.(부모 방문)
+			B_preorder(T.getLeft()); //B_preorder()메서드에 T.getLeft()값을 넣습니다.(왼쪽 자식방문)
+			B_preorder(T.getRight()); //B_preorder()메서드에 T.getRight()값을 넣습니다.(오른쪽 자식 방문)
+		}
+	}
+	public void postorder(){ //후위 순회 메서드입니다.
+		B_postorder(root); //B_postorder()메서드에 root값을 삽입합니다.
+	}
+	private void B_postorder(TreeNode T){ //BTree클래스 내에서만 사용가능한 B_preorder메서드로 TreeNode형 T가 삽입됩니다.
+		if(T != null){ //T의 값이 null이 아닌지 확인하는 조건문입니다.
+			B_postorder(T.getLeft()); //조건이 맞을 경우 B_postorder()메서드에 T.getLeft()값을 넣습니다.
+			B_postorder(T.getRight()); //B_postorder()메서드에 T.getRight()값을 넣습니다.
+			System.out.print(T.getData() + " ");
+		}
+	}
+	public void iterInorder(){
+		Stack iterTree = new Stack();
+		TreeNode p = root;
+		
+		if(p != null){
+			iterTree.push(p);
+		}
+		
+		while(!(iterTree.isEmpty())){
+			if(p != null){
+				p = iterTree.peek();
+				p = p.getLeft();
+				while(p != null){
+					iterTree.push(p);
+					p = p.getLeft();
+				}
+			}
+		p = iterTree.pop();
+		System.out.print(p.getData()+ " ");
+		p = p.getRight();
+		if(p != null){
+			iterTree.push(p);
+		}
+		}
+	}
+	
+	public void iterPreorder(){
+		Stack iterTree = new Stack();
+		TreeNode p = root;
+		
+		if(p != null){
+			iterTree.push(p);
+		}
+		
+		while(!(iterTree.isEmpty())){
+			if(p != null){
+				p = iterTree.peek();
+				System.out.print(p.getData()+ " ");
+				p = p.getLeft();
+				while(p != null){
+					System.out.print(p.getData()+ " ");
+					iterTree.push(p);
+					p = p.getLeft();
+				}
+			}
+		p = iterTree.pop();
+		p = p.getRight();
+		if(p != null){
+			iterTree.push(p);
+		}
+		}
+	}
+}

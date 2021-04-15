@@ -1,0 +1,40 @@
+public class Queue
+{
+	private Node front;
+	private Node rear;
+	private int count;
+	
+	public Queue()
+	{
+		front = null;
+		rear  = null;
+		count = 0;
+	}
+	public boolean isEmpty()
+	{
+		return count == 0;
+	}
+	public void enqueue(TreeNode data)
+	{
+		Node node = new Node(data);
+		if(count == 0)
+			front = rear = node;
+		else
+		{
+			rear.setLink(node);
+			rear = node;
+		}
+		count++;
+	}
+	public TreeNode dequeue()
+	{
+		if(count == 0)
+			return null;
+		TreeNode data = front.getNode();
+		front = front.getLink();
+		if(front == null)
+			rear = null;
+		count--;
+		return data;
+	}
+}

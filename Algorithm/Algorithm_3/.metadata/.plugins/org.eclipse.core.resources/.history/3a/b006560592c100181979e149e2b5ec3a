@@ -1,0 +1,40 @@
+public class Queue //레벨 순회에서 사용할 Queue 클래스 입니다.
+{
+	private Node front; //Queue클래스내에서만 사용가능한 Node형 front를 선언합니다. 
+	private Node rear; //Queue클래스내에서만 사용가능한 Node형 rear를 선언합니다.
+	private int count; //Queue클래스내에서만 사용가능한 int형 count를 선언합니다.
+	
+	public Queue() //생성자 입니다.
+	{
+		front = null; //front에 null값을 넣어줍니다.
+		rear  = null; //rear에 null값을 넣어줍니다.
+		count = 0; //count에 0을 넣어줍니다.
+	}
+	public boolean isEmpty() //boolean형 isEmpty()메서드 입니다. 큐가 비어있는지 확인하기 위한 메서드이빈다.
+	{
+		return count == 0;
+	}
+	public void enqueue(TreeNode data)
+	{
+		Node node = new Node(data);
+		if(count == 0)
+			front = rear = node;
+		else
+		{
+			rear.setLink(node);
+			rear = node;
+		}
+		count++;
+	}
+	public TreeNode dequeue()
+	{
+		if(count == 0)
+			return null;
+		TreeNode data = front.getNode();
+		front = front.getLink();
+		if(front == null)
+			rear = null;
+		count--;
+		return data;
+	}
+}

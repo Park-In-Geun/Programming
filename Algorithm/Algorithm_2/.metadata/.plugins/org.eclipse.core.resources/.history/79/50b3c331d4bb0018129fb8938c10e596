@@ -1,0 +1,38 @@
+public class Stack //이진트리 비순환에서 사용할 Stack를래스 입니다.
+{	
+	private Node top; //Stack클래스 내에서만 사용할 Node형 변수 top입니다.
+	
+	public Stack() //생성자 입니다.
+	{
+		this.top = null; // this.top에 null값을 넣어줍니다
+	}	
+	public boolean isEmpty() //boolean형 isEmpty()로 스택이 비어있는지 확인하는 메서드입니다.
+	{
+		return top == null; // top이 null값과 같은지를 반환합니다.
+	}	
+	public void push(TreeNode node) //삽입된 TreeNode형 node를 스택에 넣는 push메서드 입니다.
+	{
+		Node sn = new Node(node, top);
+		top = sn;		
+	}
+	public TreeNode pop()
+	{
+		if(this.isEmpty())
+		{
+			System.out.println("Stack is empty.");
+			return null;
+		}
+		Node node = top;
+		top = node.getLink();
+		return node.getNode();
+	}
+	public TreeNode peek()
+	{
+		if(this.isEmpty())
+		{
+			System.out.println("Stack is empty.");
+			return null;
+		}
+		return top.getNode();
+	}	
+}
