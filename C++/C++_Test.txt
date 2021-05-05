@@ -1,0 +1,78 @@
+#include <iostream>
+#include <cstring>
+#include <string>
+
+using namespace std;
+
+class Car {
+	string owner;
+	string carnum;
+	int year;
+public:
+	Car();
+	void setValue(string w, string c, int y);
+	string getOwner();
+	string getCarnum();
+	int getYear();
+};
+
+class CarManage {
+	Car *p;
+	int length;
+public:
+	CarManage(int length);
+	void carInfo(string num);
+	~CarManage();
+};
+
+Car::Car(){
+	cout << "차량 소유자, 차량번호, 등록년도 >>>";
+	cin >> owner >> carnum >> year;
+	setValue(owner, carnum, year);
+}
+void Car::setValue(string w, string c, int y) {
+	this->owner = w;
+	this->carnum = c;
+	this->year = y;
+}
+string Car::getOwner() { return this->owner; }
+string Car::getCarnum() { return this->carnum; }
+int Car::getYear() { return this->year; }
+
+CarManage::CarManage(int length) {
+	this->length = length;
+	p = new Car[length];
+	
+}
+
+void CarManage::carInfo(string num) {
+	int y = 2019;
+	for (int i = 0; i < this->length; i++) {
+		if (p[i].getCarnum() == num) {
+			cout << "차량 소유자 : " << p[i].getOwner() << endl;
+			if ((y - p[i].getYear()) >= 15) cout << "폐차비용 지원과 취득세 면제 입니다.";
+			else if ((y - p[i].getYear() >= 10 && (y - p[i].getYear()) < 15)) cout << "폐차 비용만 보조";
+			else cout << "아무런 보조 없음";
+		}
+	}
+	
+}
+
+CarManage::~CarManage() { 
+	cout << "배열을 삭제합니다";
+	delete[] p;
+}
+
+
+int main()
+{
+	int size;
+	string num;
+	cout << "생성하고자 하는 배열 크기를 입력하세요 >>>";
+	cin >> size;
+	CarManage obj(size);
+	cout << "차량번호를 입력하세요 >>>";
+	cin >> num;
+	obj.carInfo(num);
+	system("pause");
+}

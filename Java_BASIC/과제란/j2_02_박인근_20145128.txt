@@ -1,0 +1,137 @@
+문제 10. Dog 객체 배열을 만들어 다섯 개를 저장 한 후 사용자가 묻는 색깔의 강아지가 가지고 있는 간식 수를 출력하는 기능을 DogTest에 추가 하시오. 
+
+Dog 클래스 소스
+
+public class Dog {
+	private int age; //나이
+	private String color; //색깔
+	private int food; //간식개수
+	static private int total; //Dog 객체 수
+	
+	Dog(int age, String color, int food){
+		this.age = age;
+		this.color = color;
+		this.food = food;
+		total++;
+	}
+	
+	String barking(){
+		if(this.food==0){ return "시무룩\n"; }
+		this.food--;
+		return "멍멍\n";
+	}
+	
+	boolean hungry(){
+		if(this.food <= 1) return true;
+		else return false;
+	}
+	
+	boolean sleeping(int nfood){
+		if(nfood <= 0){
+			return true;
+		}
+		else{
+			this.food += nfood;
+			return false;
+		}
+	}
+	
+	String getColor(){
+		return this.color;
+	}
+	
+	int getFood(){
+		return this.food;
+	}
+	
+	public String toString(){
+		return "강아지 나이 : " + this.age + ", 강아지 색깔 : " + this.color + ", 간식 개수 : " + this.food + "\n";
+	}
+	
+	static int getTotal(){
+		return total;
+	}
+}
+
+DogRun 클래스 소스
+import java.util.*;
+
+public class DogRun {
+	public void run() {
+		Dog d_array[] = new Dog[5];
+		d_array[0] = new Dog(1, "Red", 2);
+		d_array[1] = new Dog(3, "Green", 4);
+		d_array[2] = new Dog(5, "Blue", 6);
+		d_array[3] = new Dog(7, "Brown", 8);
+		d_array[4] = new Dog(9, "Yellow", 10);
+		Scanner key = new Scanner(System.in);
+		String color;
+		
+		System.out.print("강아지들의 정보\n");
+		for (int i = 0 ; i < 5 ; i++) {
+			System.out.print(d_array[i]);
+		}
+
+		do {
+			System.out.print("\n강아지의 색깔을 입력하세요(종료 q) : ");
+			color = key.next();
+			int flag = 0;
+			
+			if(color.charAt(0) == 'q') {
+				System.out.print("\n'q'를 입력하셨습니다.\n프로그램을 종료합니다.");
+				break;
+			}
+			
+			for (Dog dg : d_array) {
+				if (dg.getColor().equals(color)) {
+					System.out.print("\n입력하신 색깔을 가진 강아지가 가지고 있는 간식 수 : "
+							+ dg.getFood());
+					flag = 1;
+				}
+			}
+			if(flag == 0){
+				System.out.print("입력하신 색깔을 가진 강아지가 없습니다.");
+			}
+			
+		} while (true);
+	}
+}
+
+DogTest 클래스 소스
+
+public class DogTest {
+	public static void main(String args[]){
+		DogRun Drun = new DogRun();
+		Drun.run();
+	}
+}
+
+14. class Calculation에서 2개의 정수의 합을 구하는 sum()과 3개의 정수의 합을 구하는 sum()을 메소드 오버로딩을 이용하여 정의하라. class CalculationTest를 작성하여 sum() 함수를 테스트 하시오.
+
+Calculation 클래스 소스
+package Week2;
+
+public class Calculation {
+	int sum(int x, int y){
+		return x+y;
+	}
+	
+	int sum(int x, int y, int z){
+		return x+y+z;
+	}
+}
+
+CalculationTest 클래스 소스
+package Week2;
+
+public class CalculationTest {
+	public static void main(String args[]){
+		Calculation cal = new Calculation();
+		
+		System.out.print("2개의 정수의 합 = " + cal.sum(5, 25));
+		System.out.print("\n3개의 정수의 합 = " + cal.sum(5, 25, 100));
+		
+	}
+}
+
+

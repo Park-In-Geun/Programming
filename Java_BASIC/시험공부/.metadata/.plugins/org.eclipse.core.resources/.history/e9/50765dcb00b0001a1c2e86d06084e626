@@ -1,0 +1,6 @@
+package Class06;
+
+public class CellPhoneTest {
+	CellPhone cp = new CellPhone("010-0000-0000");
+	
+}

@@ -1,0 +1,11 @@
+package Extends;
+
+public class exTest {
+	public static void main(String args[]){
+		A a = new B();
+		
+		a.c();
+		a.k();
+	}
+
+}

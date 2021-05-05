@@ -1,0 +1,23 @@
+package quiz2;
+
+public class Dog extends Animal{
+	int count;
+	String name;
+	
+	Dog(){
+		
+	}
+	
+	Dog(String n){
+		this.name = n;
+		this.count += 1;
+	}
+	
+	String sound(){
+		return "¾ß~¿Ë";
+	}
+	
+	int getCountDog(){
+		return this.count;
+	}
+}

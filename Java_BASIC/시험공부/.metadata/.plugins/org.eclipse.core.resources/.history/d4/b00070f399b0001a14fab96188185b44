@@ -1,0 +1,4 @@
+package Extends;
+
+public class B extends A {
+}

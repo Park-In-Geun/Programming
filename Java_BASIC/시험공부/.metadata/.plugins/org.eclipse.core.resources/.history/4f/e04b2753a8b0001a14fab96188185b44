@@ -1,0 +1,30 @@
+package Extends;
+
+public class Family {
+	
+	String f1;
+	String f2;
+	String f3;
+	String f4;
+	String call;
+	
+	Family(){
+		this.f1 = "dad";
+		this.f2 = "mom";
+		this.f3 = "girl";
+		this.f4 = "boy";
+		this.call = "통화를 합니다.";
+	}
+	
+	public void operation(){
+		System.out.println(this.f1 + this.call);
+		System.out.println(this.f2 + this.call);
+		System.out.println(this.f3 + this.call);
+		System.out.println(this.f4 + this.call);
+	}
+	
+	public String change(String f, String p){
+		super(f,p);
+	}
+	
+}

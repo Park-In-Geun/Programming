@@ -1,0 +1,9 @@
+package Extends;
+
+public class MountainBike extends Bike{
+	public int seatHeight;
+	public void MountainBike(int g) {
+		super();
+		gear=g;
+	}
+}

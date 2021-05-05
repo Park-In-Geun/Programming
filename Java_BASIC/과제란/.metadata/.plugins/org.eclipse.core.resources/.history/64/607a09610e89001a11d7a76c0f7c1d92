@@ -1,0 +1,11 @@
+package quiz7;
+
+public class RectangleTest {
+	public static void main(String[] args) {
+		IGraphicsObject ig = new Rectangle();
+		
+		ig.draw();
+		System.out.print("사각형의 면적은 : " + ig.getArea());
+		
+	}
+}

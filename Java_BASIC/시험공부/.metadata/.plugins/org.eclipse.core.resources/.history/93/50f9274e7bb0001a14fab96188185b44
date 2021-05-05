@@ -1,0 +1,9 @@
+package Class06;
+
+public class Dog {
+	private int age;
+	private int food;
+	static private int total;
+	private String color;
+	
+}

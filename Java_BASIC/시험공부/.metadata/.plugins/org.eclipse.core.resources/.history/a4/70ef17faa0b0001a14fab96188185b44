@@ -1,0 +1,12 @@
+package Extends;
+
+public class Customer extends Person{
+
+	private String cnum;
+	private int m;
+	
+	Customer(){
+		this(String c, int m);
+	}
+	
+}

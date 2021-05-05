@@ -1,0 +1,8 @@
+package Class06;
+
+public class Rtest {
+	Rectangle myRect = new myRect();
+    myRect.width = 10;
+    myRect.height = 20;
+    System.out.println("¸éÀûÀº " + myRect.area());
+}

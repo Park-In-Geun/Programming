@@ -1,0 +1,20 @@
+package quiz2;
+
+public class Cat extends Animal{
+	int count;
+	String name;
+	
+	Cat(){
+		this("unknown");
+	}
+	
+	Cat(String n){
+		this.name = n;
+		this.count += 1;
+	}
+	
+	String sound(){
+		return "¾ß~¿Ë";
+	}
+	
+}

@@ -1,0 +1,19 @@
+package Class06;
+import java.util.Scanner;
+
+public class CellPhoneTest {
+	public static void main(String args[]){
+		CellPhone cp[] = { new CellPhone("010-0000-0000"),
+							new CellPhone("010-1111-1111"),
+							new CellPhone("010-2222-2222"),
+							new CellPhone("010-3333-3333"),
+							new CellPhone("010-4444-4444")};
+		String telNum;
+		Scanner key = new Scanner(System.in);
+		
+		while(true){
+			telNum = key.next();
+		}
+		
+	}
+}

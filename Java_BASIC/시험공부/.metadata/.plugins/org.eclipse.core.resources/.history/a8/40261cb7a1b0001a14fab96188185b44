@@ -1,0 +1,15 @@
+package Extends;
+
+public class PCTest {
+	public static void main(String args[]){
+		
+		Person p = new Person();
+		Person p2 = new Person("박인근", "서울시 광진구", "010-1234-5678");
+		Customer c = new Customer();
+		Customer c2 = new Customer("01",100);
+	
+		for(Person t : p){
+			p.getAddress();
+		}
+	}
+}

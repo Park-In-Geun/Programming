@@ -1,0 +1,23 @@
+package Class06;
+
+public class Dog {
+	private int age;
+	private int food;
+	static private int total;
+	private String color;
+	
+	String barking(){
+		if(this.food == 0){
+			return "½Ã¹«·è";
+		}
+		this.food--;
+		return "¸Û¸Û";
+	}
+	
+	boolean hungry(){
+		if(this.food <= 1){
+			return true;
+		}
+		return false;
+	}
+}

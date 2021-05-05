@@ -1,0 +1,5 @@
+package Extends;
+
+public class B {
+	public int myMethod(int a, int b) { return 1; } 
+}

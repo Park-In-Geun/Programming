@@ -1,0 +1,7 @@
+package Class06;
+
+public class CellPhoneTest {
+	public static void main(String args[]){
+		CellPhone cp[5];
+	}
+}

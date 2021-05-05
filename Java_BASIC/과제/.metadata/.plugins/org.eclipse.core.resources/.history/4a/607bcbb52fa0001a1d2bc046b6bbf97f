@@ -1,0 +1,16 @@
+package API11;
+
+public class BasicAPITest {
+	public static void main(String[] args) {
+		int count = 0;
+		
+		for(int i = 0 ; i < args.length ; i++){
+			char tmp = args[i].charAt(i);
+			if('0' <= tmp && tmp <= '9'){
+				count++;
+			}
+		}
+		
+		
+	}
+}

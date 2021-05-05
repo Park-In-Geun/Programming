@@ -1,0 +1,10 @@
+package Extends;
+
+public class exTest {
+	public static void main(String args[]){
+		A a = new B();
+		
+		System.out.print(a.c());
+	}
+
+}

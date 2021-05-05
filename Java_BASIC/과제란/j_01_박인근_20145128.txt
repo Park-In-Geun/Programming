@@ -1,0 +1,128 @@
+1. 다음 프로그램은 정상적인가? 가비지 컬렉터 의해 사라지게 되는 객체가 존재하는가?
+
+class MyClass  { }
+ 
+class Test  
+{  
+    MyClass doSomething() 
+    {
+        MyClass b = new MyClass(); //6번째 줄
+        return b; 
+    } 
+    public static void main (String args[]) 
+    { 
+        Test t = new Test();  
+        MyClass newObj = t.doSomething();  
+        newObj = new MyClass(); //13번째 줄
+    } 
+}
+
+해답 : MyClass newObj = t.doSomething();  부분에서 이미 newObj 는 t.doSomething() 에서의해
+	리턴 값인 MyClass b 를 받았지만 13번째 줄에서 newObj를 다시 초기화 해주기 때문에 
+        MyClass newObj = t.doSomething(); 구문에서 카비지 컬렉터에 의해 객체가 사라지게 됩니다.
+
+
+2. 다음 프로그램에서 잘못된 부분은 무엇인가? 올바르게 수정하시오. 
+
+class Rectangle 
+{
+	int width, height;
+	int area() { return width*height; }
+}
+public class Test {
+    public static void main(String[] args) 
+    {
+        Rectangle myRect;
+        myRect.width = 10;
+        myRect.height = 20;
+        System.out.println("면적은 " + myRect.area());
+    }
+}
+
+해답 : Rectangle myRect; 부분에서 초기화가 이루어지지 않았기 때문에 아래 부분은 모두 오류가 발생하게됩니다.
+	Rectangle myRect = new Rectangle(); 로 변경해 주어야 실행이 가능합니다.
+
+
+8. 강아지를 나타내는 클래스 Dog을 만들어보자. 
+
+  - 강아지 클래스는 나이(age), 색깔(color), 간식(food), Dog객체 수(total)의 필드를 가지며, 
+  - 몇 개의 메소드를 가진다.
+	: barking()	//barking()이 호출될 때 마다 간식은 1개씩 감소하고, ‘멍멍’ 리턴.
+				//간식의 개수가 0이면 더 이상 감소하지 않고, ‘시무룩’ 리턴
+	: hungry()	//간식이 1개 이하이면 true를 리턴. 
+	: sleeping()	//매개변수로 간식을 주면 false, 간식을 주지 않으면 true 리턴
+				//전달된 간식의 수는 food에 누적 저장된다.
+    : toString() //현재 Dog 객체 상태를 문자열로 리턴
+  - Dog 객체가 생성될 때 마다 현재 생성된 Dog 객체의 수를 저장해야 한다.
+    : getTotal()	//main()에서 Dog 객체가 몇 개 생성되었는지 출력
+
+해답 소스 : 
+public class Dog {
+	private int age; //나이
+	private String color; //색깔
+	private int food; //간식개수
+	static private int total; //Dog 객체 수
+	
+	Dog(int age, String color, int food){
+		this.age = age;
+		this.color = color;
+		this.food = food;
+		total++;
+	}
+	
+	String barking(){
+		if(this.food==0){ return "시무룩\n"; }
+		this.food--;
+		return "멍멍\n";
+	}
+	
+	boolean hungry(){
+		if(this.food <= 1) return true;
+		else return false;
+	}
+	
+	boolean sleeping(int nfood){
+		if(nfood <= 0){
+			return true;
+		}
+		else{
+			this.food += nfood;
+			return false;
+		}
+	}
+	
+	public String toString(){
+		return "강아지 나이 : " + this.age + ", 강아지 색깔 : " + this.color + ", 간식 개수 : " + this.food + "\n";
+	}
+	
+	static int getTotal(){
+		return total;
+	}
+}
+
+
+
+9. Dog 클래스를 작성하고 객체를 생성하여 테스트하라. 
+
+해답 소스 : 
+public class DogTest {
+	public static void main(String args[]){
+		Dog a = new Dog(1,"brown",4);
+		Dog b = new Dog(3,"yellow",1);
+		System.out.print("a객체 강아지 정보 = " + a);
+		System.out.print("b객체 강아지 정보 = " + b);
+		System.out.print("a객체 barking : " + a.barking());
+		System.out.print("b객체 barking : " + b.barking());
+		System.out.print("a객체 hungry : " + a.hungry() + "\n");
+		System.out.print("b객체 hungry : " + b.hungry() + "\n");
+		a.sleeping(1);
+		b.sleeping(0);
+		System.out.print("a객체  sleeping 후 강아지 정보 = " + a);
+		System.out.print("b객체  sleeping 후 강아지 정보 = " + b);
+		System.out.print("a객체 barking : " + a.barking());
+		System.out.print("b객체 barking : " + b.barking());
+		System.out.print("a객체 hungry : " + a.hungry() + "\n");
+		System.out.print("b객체 hungry : " + b.hungry() + "\n");
+		System.out.print("전체 Dog 객체 수 : " + a.getTotal() + "\n");
+	}
+}

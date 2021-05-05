@@ -1,0 +1,13 @@
+package Class06;
+
+public class CellPhone {
+	int count; // 핸드폰 수량
+	String telnum; // 폰번호
+	boolean toggle; // on/off
+	
+	CellPhone(String n, boolean to){
+		this.telnum = n;
+		this.toggle = to;
+	}
+	
+}

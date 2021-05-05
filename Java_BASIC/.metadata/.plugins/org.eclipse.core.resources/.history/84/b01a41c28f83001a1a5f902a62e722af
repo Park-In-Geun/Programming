@@ -1,0 +1,16 @@
+package quiz2;
+
+public class Cat extends Animal{
+	int count;
+	String name;
+	
+	Cat(){
+		
+	}
+	
+	Cat(String n){
+		this.name = n;
+		this.count += 1;
+	}
+	
+}

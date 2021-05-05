@@ -1,0 +1,6 @@
+package Class06;
+
+public class Rectangle {
+	static int width, height;
+	static int area() { return width*height; }
+}

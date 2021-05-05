@@ -1,0 +1,18 @@
+package Extends;
+
+public class Cylinder extends Circle{
+	double height;
+	
+	Cylinder(){
+		this(0.0, 0.0);
+	}
+	
+	Cylinder(double r){
+		this(r, 0.0);
+	}
+	
+	Cylinder(double r, double h){
+		super(r);
+		this.height =h;
+	}
+}

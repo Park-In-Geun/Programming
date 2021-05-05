@@ -1,0 +1,11 @@
+package Extends;
+
+public class A {
+	A(){	}
+	void c(){
+		System.out.print("A");
+	}
+	void k(){
+		System.out.print("A2");
+	}
+}

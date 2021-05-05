@@ -1,0 +1,13 @@
+package Class06;
+
+public class CellPhoneTest {
+	public static void main(String args[]){
+		CellPhone cp = new CellPhone("010-0000-0000");
+		CellPhone cp2 = new CellPhone("010-0000-0000");
+		System.out.print(cp);
+		System.out.print("\n전원 버튼 클릭 시 " + cp.telNum + " 의  전원 상태 : " + cp.powerToggle());
+		System.out.print(cp2);
+		System.out.print("\n전원 버튼 클릭 시 " + cp2.telNum + " 의  전원 상태 : " + cp2.powerToggle());
+		
+	}
+}

@@ -1,0 +1,15 @@
+package Class06;
+
+public class DogTest {
+	public static void main(String args[]){
+		Dog d = new Dog();
+		Dog d2 = new Dog(5, 20, "Yellow");
+		Dog d3 = new Dog(2, 10, "Red");
+		Dog d4 = new Dog(7, 14, "ÆÄ¶û");
+		
+		System.out.print(d);
+		System.out.print(d2);
+		System.out.print(d3);
+		System.out.print(d4);
+	}
+}

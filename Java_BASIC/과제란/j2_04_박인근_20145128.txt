@@ -1,0 +1,326 @@
+문제 15. 일반적인 휴대폰을 나타내는 Phone 클래스를 작성한다. Phone에는 제조사maker, 가격price, 통신타입type(2G 또는 3G) 등의 정보가 저장되어 있다. 
+Phone에서 상속받아서 SmartPhone 클래스를 작성하여 보자. SmartPhone 클래스에는 내부 메모리 크기memory, 블루투스지원여부hasBluetooth 등의 필드가 추가된다.
+생성자, 접근자, 설정자를 포함하여서 각각의 클래스를 작성한다. PhoneTest 클래스에서 이들 클래스들의 객체 배열을 만들고 각 객체의 모든 정보를 출력하는 프로그램을 작성하라. 
+
+해답소스
+
+[Phone 클래스]
+package Week4;
+
+public class Phone {
+	String maker;
+	int price;
+	String type;
+	
+	Phone(String m, int p, String t){
+		this.maker = m;
+		this.price = p;
+		this.type = t;
+	}
+
+	public String getMaker() {
+		return this.maker;
+	}
+
+	public void setMaker(String maker) {
+		this.maker = maker;
+	}
+
+	public int getPrice() {
+		return this.price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	
+}
+
+[SmartPhone 클래스]
+package Week4;
+
+public class SmartPhone extends Phone{
+	int memory;
+	boolean hasBluetooth;
+	
+	SmartPhone(String maker, int price, String type, int m, boolean h){
+		super(maker,price,type);
+		this.memory = m;
+		this.hasBluetooth = h;
+	}
+
+	public int getMemory() {
+		return this.memory;
+	}
+
+	public void setMemory(int memory) {
+		this.memory = memory;
+	}
+
+	public boolean getHasBluetooth() {
+		return this.hasBluetooth;
+	}
+
+	public void setHasBluetooth(boolean hasBluetooth) {
+		this.hasBluetooth = hasBluetooth;
+	}
+	
+	
+}
+
+[PhoneTest 클래스]
+package Week4;
+
+public class PhoneTest {
+	public static void main(String args[]){
+		SmartPhone[] Smartphones = { new SmartPhone("삼성",1000000,"3G",32,true),
+						   new SmartPhone("애플",900000,"3G",64,false),
+						   new SmartPhone("삼성",400000,"2G",16,false),
+						   new SmartPhone("애플",500000,"2G",32,true),
+		};
+		
+		for(int i = 0 ; i < Smartphones.length;i++){
+			System.out.println((i+1) + "번 째 스마트폰 Maker : " + Smartphones[i].getMaker() + " Price : " + Smartphones[i].getPrice() + " Type : " + Smartphones[i].getType() + " Memory : " + Smartphones[i].getMemory() + " hasBluetooth : " + Smartphones[i].getHasBluetooth());
+		}
+		
+	}
+}
+
+
+문제 20.추상 메소드 sound()를 가지고 있는 추상 클래스 Bird를 작성하고 Bird를 상속받아서 Dove 클래스를 작성하라. Dove 클래스의 sound()에서는 “coo coo"를 출력한다. 
+
+해답 소스
+
+[Bird 클래스]
+package Week4;
+
+public abstract class Bird {
+	
+	public abstract void sound();
+	
+}
+
+[Dove 클래스]
+package Week4;
+
+public class Dove extends Bird {
+	
+	public void sound(){
+		System.out.print("coo coo");
+	}
+}
+
+
+문제 21. 다음 조건에 따라 클래스를 작성하고 테스트 하시오.
+  - Fruit class : me() 메소드에서 “나는 과일” 리턴  
+  - Fruit 상속 받은 Apple class : me() 메소드에서 “나는 사과” 리턴  
+  - Fruit 상속 받은 Grape class : me() 메소드에서 “나는 포도” 리턴  
+  - Fruit 상속 받은 Pear class : me() 메소드에서 “나는 배” 리턴
+  - Test class :  main() 메소드에서 Fruit 타입의 배열을 생성해 Fruit, Apple, Grape, Pear 객체를 저장하고 각각의 me()메소드 호출하여 결과를 출력 
+
+해답 소스
+
+[Fruit 클래스]
+package Week4;
+
+public class Fruit {
+	
+	public String me(){
+		return "나는 과일";
+	}
+}
+
+
+[Apple 클래스]
+package Week4;
+
+public class Apple extends Fruit{
+	
+	public String me(){
+		return "나는 사과";
+	}
+}
+
+[Grape 클래스]
+package Week4;
+
+public class Grape extends Fruit{
+	public String me(){
+		return "나는 포도";
+	}
+}
+
+[Pear 클래스]
+package Week4;
+
+public class Pear extends Fruit{
+	public String me(){
+		return "나는 배";
+	}
+}
+
+[Test 클래스]
+package Week4;
+
+public class Test {
+	public static void main(String agrs[]){
+		Fruit fs[] = { new Fruit(),
+					   new Apple(),
+					   new Grape(),
+					   new Pear() };
+		
+		System.out.println("Fruit 클래스의 me()객체 : " + fs[0].me());
+		System.out.println("Apple 클래스의 me()객체 : " + fs[1].me());
+		System.out.println("Grape 클래스의 me()객체 : " + fs[2].me());
+		System.out.println("Pear 클래스의 me()객체 : " + fs[3].me());
+		
+	}
+}
+
+
+문제 22. 다음 문장을 잘 읽고 조건에 따라 클래스를 작성하고 테스트 하시오.
+
+- 우리 집은 가족(Family)이 4명(dad, mom, boy, girl)이고, 엄마가 추석 선물로 모든 가족에게 핸드폰(Phone)을 사 주었습니다. 엄마가 구매한 핸드폰은 잘 동작(operation) 했지만 통화(call)만 되는 폰입니다.
+
+- 그런데 딸은 이 핸드폰으로 남친의 얼굴을 보며 영상통화를 할 수 없다고 안드로이드폰(AndrPhone)으로 교환(change)했습니다.
+
+- 또한 사춘기 아들은 자신의 핸드폰을 아무렇게나 사용하다가 액정이 깨져 새로운 핸드폰을 사야 했습니다. 아들은 애플폰(ApplePhone)으로 교환(change)했고 이 애플폰은 영상통화 뿐 만 아니라 통화내용을 녹음하는 기능도 가능합니다.
+
+- 위의 내용과 실행 결과를 참고하여 상속, 오버라딩, 객체배열, 다형성의 개념을 사용하여 필요한 클래스를 작성하고 아래의 메인 메소드를 사용하여 실행 결과를 테스트하시오.
+
+해답 소스
+
+[Family 클래스]
+package Week4;
+
+public class Family	{
+
+	FamilyPhone[] fp = new FamilyPhone[4];
+	
+	Family(){
+		fp[0] = new FamilyPhone("dad");
+		fp[1] = new FamilyPhone("mom");
+		fp[2] = new FamilyPhone("girl");
+		fp[3] = new FamilyPhone("boy");
+	}
+	
+	public void operation(){
+		for(int i = 0 ; i < fp.length;i++){
+			System.out.println(fp[i].toString());
+		}
+	}
+	
+	public boolean change(String n, String stype){
+		for(int i=0;i<fp.length;i++){
+			if(fp[i].getFtype() == n){
+				if(stype== "andrphone"){
+					fp[i] = new FamilySPhone(fp[i].getFtype(), true, false);
+					System.out.println(fp[i].getFtype() + "의 핸드폰을 교환합니다.");
+					return true;
+				}
+				else if(stype == "applephone"){
+					fp[i] = new FamilySPhone(fp[i].getFtype(), true, true);
+					System.out.println(fp[i].getFtype() + "의 핸드폰을 교환합니다.");
+					return true;
+				}
+				else
+					return false;
+			}
+		}
+		return false;
+	}
+
+}
+
+[FamliyPhone 클래스]
+
+package Week4;
+
+public class FamilyPhone{
+	
+	String ftype;
+	String stype;
+	
+	FamilyPhone(String f){
+		this.ftype = f;
+	}
+
+	public String getFtype() {
+		return this.ftype;
+	}
+
+	public void setFtype(String ftype) {
+		this.ftype = ftype;
+	}
+
+	public String getStype() {
+		return this.stype;
+	}
+
+	public void setStype(String stype) {
+		this.stype = stype;
+	}
+	
+	public String toString(){
+		return this.ftype + "통화를 합니다.";
+	}
+
+}
+
+[FamliySPhone 클래스]
+
+package Week4;
+
+public class FamilySPhone extends FamilyPhone {
+	
+	String ftype;
+	boolean ctype;
+	boolean record;
+	
+
+	FamilySPhone(String f, boolean c, boolean r){
+		super(f);
+		this.ftype = f;
+		this.ctype = c;
+		this.record = r;
+	}
+	
+	public String toString(){
+		if(this.ctype && this.record){
+			return this.ftype + "영상통화를 하며 통화내용을 녹음합니다.";
+		}
+		else if(this.ctype && !this.record){
+			return this.ftype + "영상통화를 합니다.";
+		}
+		return this.ftype + "통화를 합니다.";
+	}
+}
+
+[FamliyExample 클래스]
+
+package Week4;
+
+public class FamilyExample {
+	public static void main(String[] args) {
+		
+		Family family = new Family();
+
+		family.operation(); System.out.println();
+		
+		System.out.println( family.change("boy", "applephone") + "\n");
+		System.out.println( family.change("girl", "andrphone") + "\n");
+		
+		
+		family.operation(); System.out.println();
+	}
+}
+

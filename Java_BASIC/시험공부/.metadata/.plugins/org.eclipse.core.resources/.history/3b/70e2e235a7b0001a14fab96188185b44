@@ -1,0 +1,18 @@
+package Extends;
+
+public class Family {
+	
+	String f1;
+	String f2;
+	String f3;
+	String f4;
+	
+	Family(){
+		
+	}
+	
+	public void operation(){
+		
+	}
+	
+}

@@ -1,0 +1,14 @@
+package Extends;
+
+public class B extends A{
+	
+	B(){
+	}
+	
+	void c(){
+		System.out.print("B");
+	}
+	void d(){
+		System.out.print("B2");
+	}
+}

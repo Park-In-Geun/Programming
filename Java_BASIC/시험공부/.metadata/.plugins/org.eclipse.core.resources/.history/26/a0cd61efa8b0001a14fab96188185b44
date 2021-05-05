@@ -1,0 +1,22 @@
+package Extends;
+
+public class Family extends Phone{
+
+	Phone f[] = new Phone[4];
+	
+	Family(){
+
+	}
+	
+	public void operation(){
+		System.out.println(this.f1 + call);
+		System.out.println(this.f2 + call);
+		System.out.println(this.f3 + call);
+		System.out.println(this.f4 + call);
+	}
+	
+	public String change(String f, String p){
+		return super.change(f, p);
+	}
+	
+}
